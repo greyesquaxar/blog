@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
+    // Esto es un cambio en local
     use Notifiable;
     use TraductorFechas;
 
