@@ -1,29 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
-// Rutas invitados
-/*Route::get('/','WelcomeController@welcome')->name('welcome'); // index
-Route::get('/tema/{tema}','ThemeController@show')->name('tema.show'); // artículos de cada tema
-Route::get('/buscador','SearchController@index');
-
-// Rutas Usuarios Autenticados
-Auth::routes(['verify' => true]);
-
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');	
-Route::put('/usuario-actualizar','UserController@update');
-
-// Rutas Administrador
 Route::middleware(['auth','role:administrador'])->group(function(){
     Route::get('admin/temas','admin\ThemeController@index');
     Route::delete('admin/temas/{tema}','admin\ThemeController@destroy')->name('tema.delete');
@@ -48,18 +24,3 @@ Route::middleware(['auth','role:administrador'])->group(function(){
     Route::post('admin/correo-masivo','admin\CorreoMasivoController@correoMasivo');
 
 });
-
-// Rutas Moderador
-Route::middleware(['auth','verified','role:moderador'])->group(function(){
-    Route::resource('moderador/articulos','moderador\ArticleController', ['names' => [
-		'index'  => 'moderador.articulos.index', 
-	    'create' => 'moderador.articulos.create',
-	    'store' => 'moderador.articulos.store',
-	    'show' => 'moderador.articulos.show',
-	    'edit' => 'moderador.articulos.edit',
-	    'update' => 'moderador.articulos.update',
-	    'destroy' => 'moderador.articulos.destroy',
-	]]);
-    Route::get('moderador/imagenes/{imagen}','moderador\ArticleImageController@destroy')->name('moderador.imagen.delete');
-    Route::get('moderador/buscador/articulos','moderador\SearchArticleController@index');
-}); */
