@@ -13,6 +13,7 @@
         "askedio/laravel-soft-cascade": "5.7",
         "barryvdh/laravel-debugbar": "~3.2",
         "fideloper/proxy": "^4.0",
+        "guzzlehttp/guzzle": "6.3",
         "intervention/image": "2.4.2",
         "jenssegers/date": "3.5.0",
         "laravel-lang/lang": "~3.0",

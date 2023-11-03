@@ -32,7 +32,7 @@ class CorreoMasivoController extends Controller
         $usuarios=User::where('bloqueado',false)->whereNotNull('email_verified_at')->get();
         foreach ($usuarios as $usuario) {
         	// aquí vamos enviando los correos a cada usuario.
-        	Mail::to($usuario)->send(new CorreoMasivo($usuario , $asunto , $contenido));
+        	Mail::to($usuario)->queue(new CorreoMasivo($usuario , $asunto , $contenido));
         }
 
         $notificacion="Se ha enviado correctamente el mensaje a todos los subscriptores";
