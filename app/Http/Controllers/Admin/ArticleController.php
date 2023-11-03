@@ -44,6 +44,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        
         $messages=[
             'titulo.required'=>'El campo Título no puede quedar vacio',
             'titulo.unique'=>'El Título de este articulo ya existe',
