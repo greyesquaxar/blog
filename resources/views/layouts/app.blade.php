@@ -29,6 +29,7 @@
     <link rel="stylesheet" href="{{ asset('assets/mobirise/css/mbr-additional.css') }}" type="text/css">
     <link rel="stylesheet" href = "{{ asset('assets/wowslider-init/twist/style.css') }}"></link>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/buscador-predictivo.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/preloader.css') }}">
     
     <!-- Styles mio -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -36,6 +37,11 @@
 
 </head>
 <body>
+    <div id="contenedor">
+        <div id="carga">
+
+        </div>
+    </div>
 
     <section class="menu1" id="menu-0" data-rv-view="0">
 
@@ -171,7 +177,9 @@
     <script src="{{ asset('assets/wowslider-init/script.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
     <script src="{{ asset('js/buscador-predictivo.js') }}"></script>
+    <script src="{{ asset('js/preloader.js') }}"></script>
 
+    
     <script src="{{ asset('js/app.js') }}"></script>
 
     @yield('comprobar-alias-js')
