@@ -53,6 +53,15 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+    public function comprobarAlias($alias = null)
+    {
+        $alias = User::where('alias', $alias)->first();
+        if ($alias) 
+            return json_encode(true);
+        return json_encode(false);
+    }
+
     protected function validator(array $data)
     {
         /* Agregado por mi */

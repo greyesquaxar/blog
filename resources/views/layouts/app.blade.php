@@ -27,8 +27,8 @@
     <link rel="stylesheet" href="{{ asset('assets/theme/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/wowslider-init/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/mobirise/css/mbr-additional.css') }}" type="text/css">
-
     <link rel="stylesheet" href = "{{ asset('assets/wowslider-init/twist/style.css') }}"></link>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/buscador-predictivo.css') }}">
     
     <!-- Styles mio -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -57,7 +57,8 @@
                         <form class="form-inline" action="{{url('/buscador')}}" method="GET">
                             @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" id="exampleInputEmail2" name="busqueda" placeholder="Buscar">
+                                <input style="width: 250px" id="buscador-predictivo" type="text" class="form-control" id="exampleInputEmail2"
+                                name="busqueda" placeholder="Buscar" autocomplete="off">
                             </div>
                             <button style="margin-top: 8px" type="submit" class="btn btn-warning btn-sm">Buscar</button>
                         </form>
@@ -168,9 +169,12 @@
     <script src="{{ asset('assets/theme/js/script.js') }}"></script>
     <script src="{{ asset('assets/wowslider-effect/effects.js') }}"></script>
     <script src="{{ asset('assets/wowslider-init/script.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="{{ asset('js/buscador-predictivo.js') }}"></script>
 
     <script src="{{ asset('js/app.js') }}"></script>
-    
+
+    @yield('comprobar-alias-js')
     @yield('include-login-modal')
 
     <input name="animation" type="hidden">

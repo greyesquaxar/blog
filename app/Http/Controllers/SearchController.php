@@ -50,4 +50,12 @@ class SearchController extends Controller
         }
         return view('buscador')->with(compact('articulosPermitidos'));
     }
+
+    public function buscadorPredictivo()
+    {
+        //Esto no es una collecion de objetos, es un array con los titulos de los articulos
+        $articulos = Article::pluck('titulo');
+        return $articulos;
+    }
+
 }
