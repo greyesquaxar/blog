@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i">
-
+    @yield('articulos-css')
     <link rel="stylesheet" href="{{ asset('assets/bootstrap-material-design-font/css/material.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/et-line-font-plugin/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/tether/tether.min.css') }}">
@@ -28,6 +28,7 @@
     <link rel="stylesheet" href = "{{ asset('assets/wowslider-init/twist/style.css') }}"></link>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('slider-drop-zone-css')
 
 </head>
 
@@ -55,6 +56,9 @@
                       <li class="nav-item">
                           <a class="nav-link link" href="{{url('/')}}" aria-expanded="false">Blog</a>
                       </li>
+                      <li class="nav-item">
+                        <a class="nav-link link" href="{{url('/admin/slider')}}" aria-expanded="false">Slider</a>
+                    </li>
                       <li class="nav-item">
                         <a class="nav-link link" href="{{url('/admin/temas')}}" aria-expanded="false">Temas</a>
                       </li>
@@ -126,6 +130,7 @@
 <script src="{{ asset('js/app.js') }}"></script>
 @yield('articulos-js')
 @yield('eliminar-img-js')
+@yield('slider-drop-zone-js')
 
 <input name="animation" type="hidden">
    <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>

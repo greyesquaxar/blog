@@ -28,4 +28,10 @@ Route::middleware(['auth','role:administrador'])->group(function(){
 
     Route::delete('admin/eliminar-todos-articulos','admin\ArticleDeleteAll@eliminarTodosArticulos');
 
+    // Slider
+	Route::resource('admin/slider','admin\SliderController')->only(['index','store','destroy']);
+	Route::get('admin/imagenes-slider','admin\SliderController@imagenesMostrarAxios');
+	Route::get('admin/imagenes-ordenar/{posicionInicial}/{posicionFinal}/{ultimo}','admin\SliderController@imagenesOrdenarAxios');
+
+
 });
