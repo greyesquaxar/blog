@@ -9,7 +9,10 @@ Route::middleware(['auth','role:administrador'])->group(function(){
     Route::post('admin/temas','admin\ThemeController@store')->name('tema.store');
 
     Route::resource('admin/articulos','admin\ArticleController');
-    Route::get('admin/imagenes/{imagen}','admin\ArticleImageController@destroy')->name('imagen.delete');
+    Route::get('admin/eliminar-todos-articulos','admin\ArticleController@eliminarTodosArticulos');
+	Route::get('admin/articulos-datatable','admin\ArticleController@articulosDatatable');
+    Route::delete('admin/imagenes/{imagen}','admin\ArticleImageController@destroy')->name('imagen.delete');
+    Route::get('admin/inputs-file/{id}','admin\ArticleController@showInputsFile');
     Route::get('admin/buscador/articulos','admin\SearchArticleController@index');
 
     Route::get('admin/articulos-borrados','admin\ArticleDeleteController@index')->name('articulos-borrados.index');
@@ -22,5 +25,7 @@ Route::middleware(['auth','role:administrador'])->group(function(){
 
     Route::get('admin/correo-masivo','admin\CorreoMasivoController@index');
     Route::post('admin/correo-masivo','admin\CorreoMasivoController@correoMasivo');
+
+    Route::delete('admin/eliminar-todos-articulos','admin\ArticleDeleteAll@eliminarTodosArticulos');
 
 });

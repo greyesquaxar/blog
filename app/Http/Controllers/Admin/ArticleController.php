@@ -204,8 +204,47 @@ class ArticleController extends Controller
             // Se borra fisicamente
             Storage::disk('public')->delete('/imagenesArticulos/'.$imagen->nombre);
         }
-        $articulo->delete();
-        $notificacion2="El articulo se ha eliminado";
-        return back()->with(compact('notificacion2'));
+        $articulo->forceDelete();
+        // $notificacion2="El articulo se ha eliminado";
+        // return back()->with(compact('notificacion2'));
     }
+
+    public function articulosDatatable()
+    {
+        return datatables(Article::withoutGlobalScope('activo')->with(['user','theme'])->orderBy('id','desc')->get())->toJson();
+    }
+
+    public function eliminarTodosArticulos()
+    {
+        $articulos=Article::withoutGlobalScope('activo')->get();
+        foreach($articulos as $articulo)
+        {
+            foreach($articulo->images as $imagen)
+            {
+                // lo borramos físicamente
+                Storage::disk('public')->delete('/imagenesArticulos/'.$imagen->nombre);
+            }
+            $articulo->forceDelete();
+        }
+    }
+
+    public function showInputsFile($id)
+    {
+        $x=1;
+        $articulo=Article::withoutGlobalScope('activo')->findOrFail($id);
+        if($articulo->images->count()<3){
+            echo '<p><h3>Añadir imágenes (máximo 3 imágenes por artículo)</h3></p>';
+        }
+        echo '<div class="container">';
+            for($i=3;$i>$articulo->images->count();$i--){
+                echo '<div style="margin-top: 20px" class="row">  
+                          <div style="margin-top: 20px" class="col-1">
+                            <input type="file" name="foto'.$x.'"></input>
+                          </div>
+                      </div>';
+                $x++;
+            }
+        echo '</div>';
+    }
+
 }

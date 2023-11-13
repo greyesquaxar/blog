@@ -26,10 +26,8 @@
     <link rel="stylesheet" href="{{ asset('assets/wowslider-init/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/mobirise/css/mbr-additional.css') }}" type="text/css">
     <link rel="stylesheet" href = "{{ asset('assets/wowslider-init/twist/style.css') }}"></link>
-    
-    <!-- Styles mio -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- Styles mio -->
 
 </head>
 
@@ -106,9 +104,9 @@
 {{-- contenido del index --}}
 
 <footer class="mbr-small-footer mbr-section mbr-section-nopadding footer1" id="footer1-7" data-rv-view="35" style="background-color: rgb(50, 50, 50); padding-top: 1.75rem; padding-bottom: 1.75rem;">
-    
+
     <div style="height:150px" class="container margin-top-40">
-        <p class="text-xs-center mbr-section-text lead">Copyright (c) 2020.</p>
+        <p class="text-xs-center mbr-section-text lead">Copyright (c) 2023.</p>
     </div>
 </footer>
 
@@ -125,7 +123,9 @@
 <script src="{{ asset('assets/theme/js/script.js') }}"></script>
 <script src="{{ asset('assets/wowslider-effect/effects.js') }}"></script>
 <script src="{{ asset('assets/wowslider-init/script.js') }}"></script>
-
+<script src="{{ asset('js/app.js') }}"></script>
+@yield('articulos-js')
+@yield('eliminar-img-js')
 
 <input name="animation" type="hidden">
    <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>

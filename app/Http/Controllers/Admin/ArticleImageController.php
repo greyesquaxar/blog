@@ -12,8 +12,8 @@ class ArticleImageController extends Controller
     public function destroy(ArticleImage $imagen)
     {
         Storage::disk('public')->delete('/imagenesArticulos/'.$imagen->nombre);
-        $imagen->delete();
-        $notificacion="Imagen eliminada correctamente";
-        return back()->with(compact('notificacion'));
+        $imagen->forceDelete();
+        /* $notificacion="Imagen eliminada correctamente";
+        return back()->with(compact('notificacion')); */
     }
 }
