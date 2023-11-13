@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Theme;
+use App\SliderImage;
 
 
 class WelcomeController extends Controller
@@ -15,7 +16,8 @@ class WelcomeController extends Controller
         /*$temasTodos=Theme::all();*/
 
         $temasDestacados=Theme::where('destacado',1)->with(['articles.images'])->orderby('id','desc')->get();
-        return view('welcome')->with(compact('temasDestacados'));
+        $imagenes=SliderImage::all();
+        return view('welcome')->with(compact('temasDestacados','imagenes'));
         
     }
 }

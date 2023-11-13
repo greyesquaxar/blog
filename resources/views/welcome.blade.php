@@ -6,16 +6,14 @@
     <div class="mbr-wowslider">
         <div class="ws_images">
             <ul>
-                <li>
-                    <img src="assets/images/slide3-1600x900.jpg" alt="title 1" title="title 1"> text 1
-                </li><li>             
-                    <img src="assets/images/slide2-1600x900.jpg" alt="title 2" title="title 2"> text 2
-                </li><li>
-                    <img src="assets/images/slide1-1600x900.jpg" alt="title 3" title="title 3"> text 3
-                </li>
+                @foreach($imagenes->sortBy('orden') as $imagen)
+                    <li>
+                        <img src="{{ Storage::url('imagenesSlider/'.$imagen->nombre) }}">
+                    </li>
+                @endforeach
             </ul>
         </div>
-        <div class="ws_bullets">
+        {{-- <div class="ws_bullets">
             <div>
                 <a href="#" title="">
                     <span><img alt="slide1" src="assets/images/tooltip3.jpg"></span>
@@ -25,7 +23,7 @@
                     <span><img alt="slide1" src="assets/images/tooltip1.jpg"></span>
                 </a>
             </div>
-        </div>
+        </div> --}}
         <div class="ws_shadow"></div>
         <div class="mbr-wowslider-options">
             <div class="params" data-paddingbottom="0" data-anim-type="book" data-theme="twist" data-autoplay="true" data-paddingtop="0" data-fullscreen="true" data-showbullets="true" data-timeout="2" data-duration="2" data-height="576" data-width="1024" data-responsive="2" data-showcaptions="false" data-captionseffect="slide" data-hidecontrols="false"></div>
